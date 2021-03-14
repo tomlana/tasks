@@ -50,3 +50,8 @@ var jobs = [
 
 ]
 
+function checkHoras (job){
+    return job.temp_est.split(' ')[0] <= 8
+}
+
+var jobsFilter = jobs.filter(checkHoras)
