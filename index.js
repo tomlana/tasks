@@ -55,3 +55,18 @@ function checkHoras (job){
 }
 
 var jobsFilter = jobs.filter(checkHoras)
+
+function orderhoras(a, b) {
+    let dataA = new Date(a.data_max);
+    let dataB = new Date(b.data_max);
+    let estA = a.temp_est.split(' ')[0];
+    let estB = b.temp_est.split(' ')[0];
+
+    dataA.setHours(dataA.getHours() - estA);
+    dataB.setHours(dataB.getHours() - estB);
+
+    return dataA - dataB
+}
+
+var jobsFilterSort = jobsFilter.sort(orderhoras);
+
